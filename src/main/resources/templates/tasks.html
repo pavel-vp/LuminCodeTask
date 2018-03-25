@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<h1>All tasks</h1>
+
+<a href="/task/addform">Add new task</a>
+
+<table border="1">
+    <tr>
+        <th>Id</th><th>Task name</th><th>Status</th><th>Add time</th><th>Finish time</th> <th></th> <th></th>
+    </tr>
+
+    <tr th:each="task : ${taskList}">
+        <td><p th:text="${task.id}"></p></td>
+        <td><p th:text="${task.name}"></p></td>
+        <td><p th:text="${task.status}"></p></td>
+        <td><p th:text="${task.timeAdded}"></p></td>
+        <td><p th:text="${task.timeFinished}"></p></td>
+
+        <td><a th:href="@{/task/modifyform(id=${task.id})}">Modify</a></td>
+        <td><a th:href="@{/task/finish(id=${task.id})}">Finish</a></td>
+
+    </tr>
+</table>
+
+
+</body>
+</html>

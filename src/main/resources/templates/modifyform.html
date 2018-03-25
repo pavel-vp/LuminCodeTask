@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<h1>Modify the task</h1>
+
+<div th:if="${errormessage != null}">
+    <h2>
+        <span th:text="'Error: ' + ${errormessage}"></span>
+    </h2>
+</div>
+
+
+<form method="POST" th:action="@{/task/modify/{id}(id=${task.id})}">
+    <input type="text" readonly="readonly" name="id" th:value="${task.id}" /><br/>
+    <input type="text" name="name" th:value="${task.name}" /><br/>
+    <textarea name="description"  th:field = "${task.description}"></textarea> <br/>
+    <input type="submit" value="Modify>>" />
+</form>
+
+<form method="POST" th:action="@{/task/delete/{id}(id=${task.id})}">
+    <input type="submit" value="Delete>>" />
+</form>
+
+
+</body>
+</html>

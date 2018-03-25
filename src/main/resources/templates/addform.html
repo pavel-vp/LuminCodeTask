@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<h1>Adding new task</h1>
+
+<div th:if="${errormessage != null}">
+    <h2>
+        <span th:text="'Error: ' + ${errormessage}"></span>
+    </h2>
+</div>
+
+
+<form method="POST" action="/task/add">
+    <input type="text" name="name" placeholder="Task name" /><br/>
+    <textarea name="description" placeholder="Task description" ></textarea> <br/>
+    <input type="submit" value="Add>>" />
+</form>
+
+
+
+</body>
+</html>
